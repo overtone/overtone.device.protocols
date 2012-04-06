@@ -39,8 +39,8 @@
     For example, if you have a 2x2 grid, you could update all of the
     lights like this:
 
-    (led-frame grid {[0 0] 1 [1 0] 0
-                     [0 1] 0 [1 1] 1})"))
+    (light-frame grid {[0 0] 1 [1 0] 0
+                       [0 1] 0 [1 1] 1})"))
 
 (defprotocol Button
   (on-action [this f]
