@@ -1,8 +1,7 @@
 (ns overtone.device.protocols)
 
-(defprotocol Grid
-  "A generic representation of a grid of buttons which are also
-  lights such as a monome or launchpad."
+(defprotocol GridInput
+  "A generic representation of a grid of buttons."
   (width [this]
     "Returns the number of elements of the grid width-wise. This value
     is not expected to change.")
@@ -16,7 +15,16 @@
 
      The handler fn should take three args: [action x y], where action
      is a keyword from the set #{:pressed :released} and x and y are
-     the coords of the button being pressed.")
+     the coords of the button being pressed."))
+
+(defprotocol GridDisplay
+  "A generic representation of a grid of lights."
+  (width [this]
+    "Returns the number of elements of the grid width-wise. This value
+    is not expected to change."    )
+  (height [this]
+    "Returns the number of elements of the grid height-wise. This
+    value is not expected to change.")
   (led-set [this x y colour]
     "Set the LED at position [x y] to the given colour. Color 0 is
     off, > 0 represents a specific palette colour. Subject to
